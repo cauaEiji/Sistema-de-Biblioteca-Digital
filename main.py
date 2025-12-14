@@ -13,7 +13,7 @@ def menu():
         print("4 - Registrar devolução")
         print("5 - Buscar livro")
         print("6 - Gerar relatórios")
-        print("7 - Salvar acervo")  # <--- Opção adicionada conforme o PDF
+        print("7 - Salvar acervo")  
         print("0 - Sair")
 
         opcao = input("Escolha uma opção: ")
@@ -34,8 +34,6 @@ def menu():
             from relatorios import gerar_relatorios
             gerar_relatorios()
         elif opcao == "7":
-            # Como o teu cadastrar_livro() já usa 'append' (ab) no arquivo,
-            # os dados já estão salvos. Esta opção serve para confirmar isso.
             print("\nO acervo é salvo automaticamente a cada cadastro.")
             print("Backup do arquivo 'acervo.bin' verificado com sucesso.")
         elif opcao == "0":
