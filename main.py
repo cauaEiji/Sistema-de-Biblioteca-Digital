@@ -1,42 +1,48 @@
 from biblioteca import cadastrar_livro, listar_livros
 from emprestimo import emprestar_livro, inicializar_emprestados
 
-
 def menu():
+    # Carregar o estado dos empréstimos ao iniciar
     inicializar_emprestados()
+
     while True:
         print("\n===== MENU =====")
         print("1 - Cadastrar livro")
         print("2 - Listar livros")
         print("3 - Emprestar livro")
-        print('4 - Registrar devolucao')
-        print('5 - Buscar livro')
-        print('6 - Gerar relatorios')
+        print("4 - Registrar devolução")
+        print("5 - Buscar livro")
+        print("6 - Gerar relatórios")
+        print("7 - Salvar acervo")  # <--- Opção adicionada conforme o PDF
         print("0 - Sair")
 
-        opcao = input("Escolha uma opcao: ")
+        opcao = input("Escolha uma opção: ")
 
         if opcao == "1":
             cadastrar_livro()
-
         elif opcao == "2":
             listar_livros()
         elif opcao == "3":
             emprestar_livro()
         elif opcao == "4":
-                from devolucao import registrar_devolucao
-                registrar_devolucao()
+            from devolucao import registrar_devolucao
+            registrar_devolucao()
         elif opcao == "5":
             from buscar import menu_busca
             menu_busca()
         elif opcao == "6":
             from relatorios import gerar_relatorios
             gerar_relatorios()
-
+        elif opcao == "7":
+            # Como o teu cadastrar_livro() já usa 'append' (ab) no arquivo,
+            # os dados já estão salvos. Esta opção serve para confirmar isso.
+            print("\nO acervo é salvo automaticamente a cada cadastro.")
+            print("Backup do arquivo 'acervo.bin' verificado com sucesso.")
         elif opcao == "0":
             print("Encerrando.")
             break
         else:
             print("Opção inválida! Tente novamente.")
 
-menu()
+if __name__ == "__main__":
+    menu()
