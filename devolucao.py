@@ -22,8 +22,8 @@ def registrar_devolucao():
         partes = linha.strip().split(";")
         if partes[0] == codigo:
             usuario = partes[1]
-            data_emp = datetime.strptime(partes[2], "%Y-%m-%d")
-            data_prev = datetime.strptime(partes[3], "%Y-%m-%d")
+            data_emp = datetime.strptime(partes[2], "%d/%m/%Y")
+            data_prev = datetime.strptime(partes[3], "%d/%m/%Y")
             encontrado = True
             break
 
